@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+
+
+:root{
+    --primary-color: hsla(212, 93%, 49%, 1);
+    --primary-hover: hsla(212, 93%, 69%, 1);
+    --secondary-color: hsla(210, 90%, 80%, 1);
+    --secondary-hover: hsla(210, 90%, 70%, 1);
+    --secondary-lighter: hsla(210, 90%, 90%, 1);
+    --tertiary-color: whitesmoke;
+    --white: white;
+    --button-color: #032247;
+}
+
+*{
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background: linear-gradient(90deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+    margin: 0;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.music-player-container{
+    background: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 20px 20px 0 var(--primary-color);
+    margin: 8rem 0;
+    z-index: 10;
+}
+
+.music-player-container .music-info{
+    background: var(--secondary-color);
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 1rem;
+    width: calc(100% - 2rem);
+    padding: 0.8rem 0.8rem 0.8rem 12rem;
+    border-radius: 1rem 1rem 0 0;
+    opacity: 0;
+    transform: translateY(0);
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out, background 0.1s ease-in-out;
+}
+
+.music-player-container.play .music-info{
+    opacity: 1;
+    background-color: var(--primary-hover);
+    transform: translateY(-100%);
+}
+
+.music-player-container .music-info .music-title{
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.music-player-container .music-info .progress-container{
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--white);
+    margin: 0.5rem 0;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.music-player-container .music-info .progress-container .progress{
+    height: 100%;
+    width: 50%;
+    border-radius: 0.25rem;
+    background-color: var(--primary-color);
+}
+
+.music-player-container .music-image-container{
+    position: relative;
+    width: 10rem;
+    height: 2rem;
+    /* min-height: 5rem; */
+    z-index: 11;
+}
+
+.music-player-container .music-image-container::after{
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--primary-hover);
+    position: absolute;
+    bottom: 225%;
+    left: 50%;
+    transform: translateY(50%) translateX(-50%);
+}
+
+.music-player-container .music-image-container img{
+    width: inherit;
+    height: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+    animation: rotate 2s linear infinite;
+    animation-play-state: paused;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.music-player-container.play .music-image-container img{
+    animation-play-state: paused;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+    
+}
+
+.music-player-container .navigation{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 1rem;
+    z-index: 1;
+}
+
+.music-player-container .navigation .action-btn{
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    color: var(--button-color);
+}
+
+.music-player-container .navigation .action-btn-big{
+    font-size: 1.7 5rem;
+}
+
