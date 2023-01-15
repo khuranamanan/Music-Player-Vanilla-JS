@@ -42,6 +42,12 @@ body{
     z-index: 10;
 }
 
+@media (max-width: 768px) {
+    .music-player-container{
+        width: 100%;
+    }
+}
+
 .music-player-container .music-info{
     background: var(--secondary-color);
     position: absolute;
