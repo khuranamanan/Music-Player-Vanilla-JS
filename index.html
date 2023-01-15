@@ -12,11 +12,15 @@
 <body>
     <h1>Music Player</h1>
 
-    <div class="music-player-container play" data-player-conatainer>
+    <div class="music-player-container" data-player-container>
         <div class="music-info">
-            <h4 class="music-title">ukelele</h4>
-            <div class="progress-container">
-                <div class="progress"></div>
+            <h4 class="music-title" data-title>ukulele</h4>
+            <div class="time-bar">
+                <p class="music-current-time" data-current-time>00:00</p>
+                <p class="music-total-time" data-total-time>00:00</p>
+            </div>
+            <div class="progress-container" data-progress-container>
+                <div class="progress" data-progress></div>
             </div>
         </div>
 
@@ -30,7 +34,7 @@
             <button class="action-btn" data-previous>
                 <i class="fas fa-backward"></i>
             </button>
-            <button class="action-btn action-btn-big" data-play>
+            <button class="action-btn" data-play>
                 <i class="fas fa-play"></i>
             </button>
             <button class="action-btn" data-forward>
